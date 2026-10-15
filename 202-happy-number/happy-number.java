@@ -1,20 +1,19 @@
 class Solution {
     public boolean isHappy(int n) {
-        HashSet<Integer> set = new HashSet<>();
+        int ans = n;
 
-        while (n != 1 && !set.contains(n)) {
-            set.add(n);
+        while (ans != 1 && ans != 4) {
             int sum = 0;
 
-            while (n > 0) {
-                int digit = n % 10;
+            while (ans > 0) {
+                int digit = ans % 10;
                 sum += digit * digit;
-                n /= 10;
+                ans /= 10;
             }
 
-            n = sum;
+            ans = sum;
         }
 
-        return n == 1;
+        return ans == 1;
     }
 }
